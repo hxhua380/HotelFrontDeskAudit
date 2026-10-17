@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-17T04:09:29.297Z",
+  "status": "PASS",
+  "scope": "published-selected-artifacts-only",
+  "command": "node --import tsx evidence/submission/verify-public.mjs",
+  "runtime": {
+    "node": "v24.14.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "rawSourceRead": false,
+  "sourceHashStatus": "NOT_RECOMPUTED_ORIGINALS_NOT_INCLUDED",
+  "sourceTransformationStatus": "HISTORICAL_DECLARATION_NOT_REPRODUCED",
+  "httpBodyHashStatus": "NOT_RECOMPUTED_BODY_NOT_INCLUDED",
+  "modelRequestsMade": 0,
+  "limitations": [
+    "PASS applies only to integrity and consistency of the published selected artifacts and the executed existing validators.",
+    "Original evidence/local files are not read or supplied. Their hashes and the three summary-field omissions remain historical provenance statements; this run cannot reproduce that source-to-derivative comparison.",
+    "The selected JSONL and HTTP files have hashes equal to their declared byte-identical sources, but the original files are not independently reopened.",
+    "HTTP metadata contains historical comparison assertions and body hashes, not complete original request/response bodies. Those body hashes and full-body comparisons are not recomputed.",
+    "The recorded Pi session/model/status fields describe the historical run. This command creates no new session, model request, tool execution or web server and supplies no independent provider attestation.",
+    "Hashes detect changes relative to the pinned historical report; they are not a signature by the model provider."
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/submission/acceptance.md",
+      "bytes": 4572,
+      "sha256": "bff3eeda41705b186f6d037b73f6a58eb93285d1d3b5e2f977cbe927222e8c2a"
+    },
+    {
+      "path": "evidence/submission/http-acceptance.json",
+      "bytes": 1766,
+      "sha256": "f083aa4ed6a5618f7709ef468fbf19b7d8aeb7f7c9f69158b35e88945c51b6f4"
+    },
+    {
+      "path": "evidence/submission/pi-events.jsonl",
+      "bytes": 23179,
+      "sha256": "5e1d350ae56013cf5e168fd6345716e985aa633d2e363fb6095d69ce8ca62a5e"
+    },
+    {
+      "path": "evidence/submission/provenance.json",
+      "bytes": 6104,
+      "sha256": "689e01902c4b598831b88da526be4d63553f6804d9d38658f42ecab1a1933527"
+    },
+    {
+      "path": "evidence/submission/run-summary.json",
+      "bytes": 22723,
+      "sha256": "25d739d70ae906563eceb89fe11ba35fa6575c19bbafc595b2a83a4b5cba6844"
+    },
+    {
+      "path": "evidence/submission/tool-executions.jsonl",
+      "bytes": 11448,
+      "sha256": "7f316504075a02150ec7e8cb04e0963188666539124574a16ae22643ffdb4aaf"
+    },
+    {
+      "path": "evidence/submission/verification.json",
+      "bytes": 14384,
+      "sha256": "066a575b2e391b53966c4b657068db59b71c0b750b4c3db9741e96ed93aca8df"
+    },
+    {
+      "path": "evidence/submission/verify.mjs",
+      "bytes": 13444,
+      "sha256": "c7e5bf68da489b53d48c7e08f8bea294402f0e15917058365d6a6eadd45e4432"
+    }
+  ],
+  "verifierImplementations": [
+    {
+      "path": "src/agent/evidence.ts",
+      "bytes": 9167,
+      "sha256": "c0c66dd9970cbe6cf503d2919601336071e85190c2bc60484e3dfd9988aee45f"
+    },
+    {
+      "path": "scripts/smoke-audit-checks.ts",
+      "bytes": 6482,
+      "sha256": "3f59fe0807d6e3f8b37c082dcac82c7a9b6e8bd3f51e76bd4aee8857fff413b0"
+    },
+    {
+      "path": "src/agent/tools.ts",
+      "bytes": 6450,
+      "sha256": "3528ac8b5ba13e0eefd00b51fce41e01a548b44cdef6279c270815f55d6e911f"
+    }
+  ],
+  "existingValidators": {
+    "collectedCalls": 1,
+    "smokePassed": 15,
+    "smokeTotal": 15,
+    "smokeChecks": [
+      {
+        "id": "session_created",
+        "description": "SDK 会话成功创建",
+        "passed": true
+      },
+      {
+        "id": "tools_registered",
+        "description": "仅开放 query_orders_by_date 与 audit_day 两个工具",
+        "passed": true
+      },
+      {
+        "id": "agent_audit_call",
+        "description": "Agent 发起本轮 audit_day 调用",
+        "passed": true
+      },
+      {
+        "id": "execute_called",
+        "description": "audit_day 的 execute() 实际进入并完成",
+        "passed": true
+      },
+      {
+        "id": "runtime_start",
+        "description": "捕获 audit_day 的 Runtime 开始事件",
+        "passed": true
+      },
+      {
+        "id": "runtime_end",
+        "description": "捕获 audit_day 的 Runtime 结束事件",
+        "passed": true
+      },
+      {
+        "id": "events_correlated",
+        "description": "同轮同调用四条记录的参数、结果与全局顺序一致",
+        "passed": true
+      },
+      {
+        "id": "correct_date",
+        "description": "工具调用及结构化返回日期均为 2026-10-15",
+        "passed": true
+      },
+      {
+        "id": "no_tool_error",
+        "description": "audit_day 的 Runtime 与 execute 均无工具错误",
+        "passed": true
+      },
+      {
+        "id": "seven_groups",
+        "description": "结构化核对返回七个结果组",
+        "passed": true
+      },
+      {
+        "id": "status_distribution",
+        "description": "五类结果数量为 1/1/1/1/3",
+        "passed": true
+      },
+      {
+        "id": "amount_conflict_evidence",
+        "description": "O002 金额 75600/79600 分及原文片段证据完整",
+        "passed": true
+      },
+      {
+        "id": "review_candidates",
+        "description": "三个人工复核组保留全部订单与录音候选",
+        "passed": true
+      },
+      {
+        "id": "final_answer",
+        "description": "模型正常结束并给出非空最终回答",
+        "passed": true
+      },
+      {
+        "id": "current_run",
+        "description": "全部日志均属于本轮 runId 和工具白名单",
+        "passed": true
+      }
+    ]
+  },
+  "recordedRun": {
+    "runId": "2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a",
+    "date": "2026-10-15",
+    "recordedStatus": "PASS",
+    "sessionCreated": true,
+    "provider": "deepseek",
+    "modelId": "deepseek-flash",
+    "finalStopReason": "stop",
+    "toolCallId": "call_00_VFrZkZJR8v9gX3TFZJjb6547",
+    "toolName": "audit_day",
+    "args": {
+      "date": "2026-10-15"
+    },
+    "resultGroups": 7,
+    "statusCounts": {
+      "matched": 1,
+      "field_mismatch": 1,
+      "missing_recording": 1,
+      "orphan_recording": 1,
+      "needs_review": 3
+    },
+    "httpStatus": 200
+  },
+  "historicalSourceStatements": {
+    "status": "RETAINED_NOT_RECOMPUTED",
+    "recordedMetadataConsistent": true,
+    "sources": [
+      {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/summary.json",
+        "bytes": 23455,
+        "sha256": "cbeea50cfc1d81a139c1ef3da050c49cc885f00c1f430c221d15ac8cb199fc40"
+      },
+      {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/pi-events.jsonl",
+        "bytes": 23179,
+        "sha256": "5e1d350ae56013cf5e168fd6345716e985aa633d2e363fb6095d69ce8ca62a5e"
+      },
+      {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/tool-executions.jsonl",
+        "bytes": 11448,
+        "sha256": "7f316504075a02150ec7e8cb04e0963188666539124574a16ae22643ffdb4aaf"
+      },
+      {
+        "path": "evidence/local/stage6-fix/http-audit-2026-10-15.json",
+        "bytes": 1766,
+        "sha256": "f083aa4ed6a5618f7709ef468fbf19b7d8aeb7f7c9f69158b35e88945c51b6f4"
+      }
+    ],
+    "omittedSummaryFields": [
+      "prompt",
+      "evidenceDirectory",
+      "summaryPath"
+    ]
+  },
+  "checks": {
+    "passed": 52,
+    "total": 52,
+    "items": [
+      {
+        "id": "allowed_input:evidence/submission/acceptance.md",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/http-acceptance.json",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/pi-events.jsonl",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/provenance.json",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/run-summary.json",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/tool-executions.jsonl",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/verification.json",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:evidence/submission/verify.mjs",
+        "passed": true
+      },
+      {
+        "id": "pinned_historical_report_sha256",
+        "passed": true
+      },
+      {
+        "id": "historical_report_seven_artifact_entries",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:run-summary.json",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:pi-events.jsonl",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:tool-executions.jsonl",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:http-acceptance.json",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:provenance.json",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:acceptance.md",
+        "passed": true
+      },
+      {
+        "id": "published_artifact_hash:verify.mjs",
+        "passed": true
+      },
+      {
+        "id": "three_validator_implementation_entries",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:src/agent/evidence.ts",
+        "passed": true
+      },
+      {
+        "id": "validator_implementation_hash:src/agent/evidence.ts",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:scripts/smoke-audit-checks.ts",
+        "passed": true
+      },
+      {
+        "id": "validator_implementation_hash:scripts/smoke-audit-checks.ts",
+        "passed": true
+      },
+      {
+        "id": "allowed_input:src/agent/tools.ts",
+        "passed": true
+      },
+      {
+        "id": "validator_implementation_hash:src/agent/tools.ts",
+        "passed": true
+      },
+      {
+        "id": "four_provenance_mappings",
+        "passed": true
+      },
+      {
+        "id": "recorded_source_metadata_consistent",
+        "passed": true
+      },
+      {
+        "id": "declared_derivative_path:run-summary.json",
+        "passed": true
+      },
+      {
+        "id": "provenance_derivative_hash:run-summary.json",
+        "passed": true
+      },
+      {
+        "id": "declared_derivative_path:pi-events.jsonl",
+        "passed": true
+      },
+      {
+        "id": "provenance_derivative_hash:pi-events.jsonl",
+        "passed": true
+      },
+      {
+        "id": "declared_derivative_path:tool-executions.jsonl",
+        "passed": true
+      },
+      {
+        "id": "provenance_derivative_hash:tool-executions.jsonl",
+        "passed": true
+      },
+      {
+        "id": "declared_derivative_path:http-acceptance.json",
+        "passed": true
+      },
+      {
+        "id": "provenance_derivative_hash:http-acceptance.json",
+        "passed": true
+      },
+      {
+        "id": "recorded_summary_source_hash_agrees_with_http_trace",
+        "passed": true
+      },
+      {
+        "id": "declared_byte_copy_source_hashes_agree_with_published_bytes",
+        "passed": true
+      },
+      {
+        "id": "http_trace_matches_published_log_hash:pi-events.jsonl",
+        "passed": true
+      },
+      {
+        "id": "http_trace_matches_published_log_hash:tool-executions.jsonl",
+        "passed": true
+      },
+      {
+        "id": "declared_summary_omissions_absent",
+        "passed": true
+      },
+      {
+        "id": "collector_one_complete_call_equal_to_summary",
+        "passed": true
+      },
+      {
+        "id": "expected_run_call_tool_exact_arguments",
+        "passed": true
+      },
+      {
+        "id": "existing_smoke_fifteen_of_fifteen",
+        "passed": true
+      },
+      {
+        "id": "recorded_model_session_normal_end",
+        "passed": true
+      },
+      {
+        "id": "summary_record_counts",
+        "passed": true
+      },
+      {
+        "id": "four_phases_sequences_one_to_four",
+        "passed": true
+      },
+      {
+        "id": "runtime_single_text_result",
+        "passed": true
+      },
+      {
+        "id": "runtime_text_details_execute_and_summary_full_results_equal",
+        "passed": true
+      },
+      {
+        "id": "summary_warnings_equal_tool_result",
+        "passed": true
+      },
+      {
+        "id": "seven_groups_and_expected_distribution",
+        "passed": true
+      },
+      {
+        "id": "http_post_date_status_run_groups_and_distribution",
+        "passed": true
+      },
+      {
+        "id": "historical_http_body_hashes_are_retained_hash_strings",
+        "passed": true
+      },
+      {
+        "id": "http_window_encloses_recorded_run_and_phases",
+        "passed": true
+      }
+    ]
+  }
+}

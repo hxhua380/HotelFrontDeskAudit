@@ -1,0 +1,87 @@
+{
+  "data_source": "synthetic demo data",
+  "hotel": "Demo Hotel",
+  "time_zone": "Asia/Shanghai",
+  "orders": [
+    {
+      "order_id": "O001",
+      "handled_at": "2026-10-15T14:05:00+08:00",
+      "room_number": "802",
+      "room_type": "大床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-16",
+      "amount_cents": 39800,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O002",
+      "handled_at": "2026-10-15T15:10:00+08:00",
+      "room_number": "806",
+      "room_type": "双床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-17",
+      "amount_cents": 75600,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O003",
+      "handled_at": "2026-10-15T09:00:00+08:00",
+      "room_number": "505",
+      "room_type": "大床房",
+      "check_in_date": "2026-10-17",
+      "check_out_date": "2026-10-18",
+      "amount_cents": 29800,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O004",
+      "handled_at": "2026-10-15T16:20:00+08:00",
+      "room_number": "701",
+      "room_type": "商务大床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-16",
+      "amount_cents": 45800,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O005",
+      "handled_at": "2026-10-15T17:30:00+08:00",
+      "room_number": "901",
+      "room_type": "大床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-16",
+      "amount_cents": 42800,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O006",
+      "handled_at": "2026-10-15T17:30:20+08:00",
+      "room_number": "902",
+      "room_type": "大床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-16",
+      "amount_cents": 42800,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O007",
+      "handled_at": "2026-10-15T19:00:10+08:00",
+      "room_number": "1008",
+      "room_type": "豪华大床房",
+      "check_in_date": "2026-10-15",
+      "check_out_date": "2026-10-17",
+      "amount_cents": 95600,
+      "currency": "CNY"
+    },
+    {
+      "order_id": "O008",
+      "handled_at": "2026-10-16T10:15:00+08:00",
+      "room_number": "803",
+      "room_type": "大床房",
+      "check_in_date": "2026-10-18",
+      "check_out_date": "2026-10-19",
+      "amount_cents": 39800,
+      "currency": "CNY"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "source": "actual-browser-http-forwarded-unchanged-to-existing-production-server",
+  "target": "http://127.0.0.1:3001",
+  "request": {
+    "method": "POST",
+    "path": "/api/audit",
+    "started_at": "2026-10-16T14:25:59.469+08:00",
+    "date": "2026-10-15",
+    "body_sha256": "449d137fcb94c7db0155f0d65e86280ebc299e98427dbca128bc80be44cd3f28"
+  },
+  "response": {
+    "ended_at": "2026-10-16T14:26:07.368+08:00",
+    "http_status": 200,
+    "status": "PASS",
+    "date": "2026-10-15",
+    "runId": "2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a",
+    "results_length": 7,
+    "status_counts": {
+      "matched": 1,
+      "field_mismatch": 1,
+      "missing_recording": 1,
+      "orphan_recording": 1,
+      "needs_review": 3
+    },
+    "body_sha256": "b872147470343cf3a542f1f565c466676ab20d3ad201aa1d7a0c511cb415db76"
+  },
+  "trace": {
+    "runId": "2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a",
+    "status": "PASS",
+    "date": "2026-10-15",
+    "runtime_events": 2,
+    "execute_records": 2,
+    "calls": [
+      {
+        "toolCallId": "call_00_VFrZkZJR8v9gX3TFZJjb6547",
+        "toolName": "audit_day",
+        "args": {
+          "date": "2026-10-15"
+        }
+      }
+    ],
+    "summary_matches_raw_trace": true,
+    "response_run_id_matches_summary": true,
+    "response_results_match_raw_tool_result": true,
+    "response_warnings_match_raw_tool_result": true,
+    "response_answer_matches_summary": true,
+    "hashes": {
+      "summary.json": "cbeea50cfc1d81a139c1ef3da050c49cc885f00c1f430c221d15ac8cb199fc40",
+      "pi-events.jsonl": "5e1d350ae56013cf5e168fd6345716e985aa633d2e363fb6095d69ce8ca62a5e",
+      "tool-executions.jsonl": "7f316504075a02150ec7e8cb04e0963188666539124574a16ae22643ffdb4aaf"
+    }
+  }
+}

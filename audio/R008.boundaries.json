@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "tool": "edge-tts",
+  "version": "7.3.1",
+  "recording_id": "R008",
+  "boundary": "SentenceBoundary",
+  "time_unit": "100ns",
+  "events": [
+    {
+      "type": "SentenceBoundary",
+      "offset": 1000000,
+      "duration": 131375000,
+      "text": "您好，Demo Hotel为您保留了八零三号大床房，二零二六年十月十八日入住，十月十九日退房，一晚房费三百九十八元，今天先确认预订信息。"
+    }
+  ],
+  "text_normalization": "Match source and service after removing Unicode punctuation/whitespace; restore original punctuation in segments without changing source text."
+}

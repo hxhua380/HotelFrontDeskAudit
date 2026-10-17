@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "data_source": "independent manual expectation; test only",
+  "hotel": "Demo Hotel",
+  "time_zone": "Asia/Shanghai",
+  "authoring_method": "按人工场景设计独立编写，不由生产匹配代码推导；证据位置在真实音频对齐交付后核对。",
+  "interpretation": "按场景分组；null 表示没有确定的一一对应关系。候选集合不能视为全部已匹配，也不得选定列表第一项。片段时间范围是整句服务边界，quote 只是该整句内的摘录，不声称摘录有单独精确时间。",
+  "cases": [
+    {
+      "case_id": "C001",
+      "order_id": "O001",
+      "recording_id": "R001",
+      "expected_status": "matched",
+      "expected_conflicting_fields": [],
+      "expected_reason": "办理与录音相差 2 秒；802 大床房、2026-10-15 入住、2026-10-16 退房、39800 分全部一致。",
+      "scenario_description": "正常入住确认；O001 保持 Stage 1 原始字段。",
+      "ambiguity": false,
+      "candidate_order_ids": ["O001"],
+      "candidate_recording_ids": ["R001"],
+      "evidence": [
+        {
+          "recording_id": "R001",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 12525,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "八零二号大床房，二零二六年十月十五日入住，十月十六日退房，房费合计三百九十八元",
+          "note": "时间范围来自 transcript_segments[0]，覆盖整个句子。"
+        }
+      ]
+    },
+    {
+      "case_id": "C002",
+      "order_id": "O002",
+      "recording_id": "R002",
+      "expected_status": "field_mismatch",
+      "expected_conflicting_fields": ["amount_cents"],
+      "expected_reason": "办理与录音相差 2 秒，806 双床房及 10-15 至 10-17 的住宿日期一致，足以支持同一事件；订单 75600 分，录音七百九十六元即 79600 分，只有金额冲突。",
+      "scenario_description": "同一入住确认中的金额错误，不能因为金额不同而直接当成孤立录音。",
+      "ambiguity": false,
+      "candidate_order_ids": ["O002"],
+      "candidate_recording_ids": ["R002"],
+      "evidence": [
+        {
+          "recording_id": "R002",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 12538,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "八零六号双床房，十月十五日入住，十月十七日退房，两晚房费合计七百九十六元",
+          "note": "原文明确说 796 元；不得把转写改成订单的 756 元。"
+        }
+      ]
+    },
+    {
+      "case_id": "C003",
+      "order_id": "O003",
+      "recording_id": null,
+      "expected_status": "missing_recording",
+      "expected_conflicting_fields": [],
+      "expected_reason": "09:00 办理的 505 大床房预订入住 10-17、退房 10-18；当天最近录音在 11:30，相隔 150 分钟且业务字段不同，周围没有合理录音候选。",
+      "scenario_description": "存在订单但缺少录音，不借用后续无关录音填空。",
+      "ambiguity": false,
+      "candidate_order_ids": ["O003"],
+      "candidate_recording_ids": [],
+      "evidence": []
+    },
+    {
+      "case_id": "C004",
+      "order_id": null,
+      "recording_id": "R003",
+      "expected_status": "orphan_recording",
+      "expected_conflicting_fields": [],
+      "expected_reason": "11:30 的录音说 601 套房、11-01 入住、11-03 退房、199800 分；订单集中既无这些房号/房型/日期，也无时间接近的办理事件。",
+      "scenario_description": "真实预订话术，但订单文件中没有对应业务记录。",
+      "ambiguity": false,
+      "candidate_order_ids": [],
+      "candidate_recording_ids": ["R003"],
+      "evidence": [
+        {
+          "recording_id": "R003",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 12313,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "六零一号套房，十一月一日入住，十一月三日退房，两晚房费共一千九百九十八元",
+          "note": "日期年份沿用录音上下文 2026 年；上述业务值均不对应现有订单。"
+        }
+      ]
+    },
+    {
+      "case_id": "C005",
+      "order_id": "O004",
+      "recording_id": "R004",
+      "expected_status": "needs_review",
+      "expected_conflicting_fields": [],
+      "expected_reason": "办理和录音仅差 2 秒，但话术只涉及核验证件，未说房号、房型、住宿日期或金额。时间近只能产生候选，不能据此确认匹配。",
+      "scenario_description": "单个时间候选但业务证据不足；不得补造 701 房或 458 元等字段。",
+      "ambiguity": false,
+      "candidate_order_ids": ["O004"],
+      "candidate_recording_ids": ["R004"],
+      "missing_evidence_fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+      "evidence": [
+        {
+          "recording_id": "R004",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 8963,
+          "fields": ["started_at"],
+          "quote": "我先核对证件信息，房间和费用稍后再向您确认",
+          "note": "started_at 指录音元数据的时间线索；本句不支持任何具体订单字段，也不是 handled_at 的语音证明。"
+        }
+      ]
+    },
+    {
+      "case_id": "C006",
+      "order_id": null,
+      "recording_id": "R005",
+      "expected_status": "needs_review",
+      "expected_conflicting_fields": [],
+      "expected_reason": "O005 和 O006 分别在 17:30:00、17:30:20 办理，R005 在 17:30:10 开始，与两者均相差 10 秒。录音只有共同的大床房和 10-15 至 10-16 日期，没有区分 901/902 的房号信息。",
+      "scenario_description": "一段录音对应两个同等合理订单候选；保留候选集合，不强行指定最佳订单。",
+      "ambiguity": true,
+      "candidate_order_ids": ["O005", "O006"],
+      "candidate_recording_ids": ["R005"],
+      "missing_evidence_fields": ["room_number", "amount_cents"],
+      "evidence": [
+        {
+          "recording_id": "R005",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 11250,
+          "fields": ["room_type", "check_in_date", "check_out_date"],
+          "quote": "大床房已为您保留，十月十五日入住，十月十六日退房",
+          "note": "共同字段不足以区分订单；即使另有同额信息也不能解决房号缺失。"
+        }
+      ]
+    },
+    {
+      "case_id": "C007",
+      "order_id": "O007",
+      "recording_id": null,
+      "expected_status": "needs_review",
+      "expected_conflicting_fields": [],
+      "expected_reason": "O007 在 19:00:10 办理，R006 和 R007 分别在前后 10 秒开始；两者均说 1008 豪华大床房、10-15 至 10-17、95600 分。仅凭现有业务内容、编号或顺序不能唯一选择。",
+      "scenario_description": "同一订单有两段不同话术的合理录音候选；允许复核或后续分组，不预先丢弃其中一段。",
+      "ambiguity": true,
+      "candidate_order_ids": ["O007"],
+      "candidate_recording_ids": ["R006", "R007"],
+      "evidence": [
+        {
+          "recording_id": "R006",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 11725,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "一零零八号豪华大床房，十月十五日入住，十月十七日退房，房费合计九百五十六元",
+          "note": "与订单业务字段一致且相差 10 秒；没有优先于另一段的依据。"
+        },
+        {
+          "recording_id": "R007",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 11525,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "一零零八号豪华大床房，入住日期十月十五日，退房日期十月十七日，两晚共九百五十六元",
+          "note": "独立生成的另一段台词，业务内容同样合理；不能只选编号更小的录音。"
+        }
+      ]
+    },
+    {
+      "case_id": "C008",
+      "order_id": "O008",
+      "recording_id": "R008",
+      "expected_status": "matched",
+      "expected_conflicting_fields": [],
+      "expected_reason": "订单办理与录音均在 2026-10-16，时间相差 2 秒；803 大床房、10-18 入住、10-19 退房、39800 分一致。按办理日查询应在第二天返回，而不是按入住日归到 10-18。",
+      "scenario_description": "日期切换与提前预订，区分办理日、录音日、入住日。",
+      "ambiguity": false,
+      "candidate_order_ids": ["O008"],
+      "candidate_recording_ids": ["R008"],
+      "evidence": [
+        {
+          "recording_id": "R008",
+          "segment_indexes": [0],
+          "start_ms": 100,
+          "end_ms": 13238,
+          "fields": ["room_number", "room_type", "check_in_date", "check_out_date", "amount_cents"],
+          "quote": "八零三号大床房，二零二六年十月十八日入住，十月十九日退房，一晚房费三百九十八元",
+          "note": "实际整句片段包含完整预订字段，不将入住日误用为办理日。"
+        }
+      ]
+    }
+  ]
+}

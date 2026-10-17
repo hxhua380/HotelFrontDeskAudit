@@ -1,0 +1,103 @@
+{
+  "data_source": "synthetic demo data",
+  "hotel": "Demo Hotel",
+  "time_zone": "Asia/Shanghai",
+  "recordings": [
+    {
+      "recording_id": "R001",
+      "started_at": "2026-10-15T14:05:02+08:00",
+      "audio_path": "audio/R001.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 12525,
+          "text": "欢迎来到Demo Hotel，给您安排的是八零二号大床房，二零二六年十月十五日入住，十月十六日退房，房费合计三百九十八元，请您确认。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R002",
+      "started_at": "2026-10-15T15:10:02+08:00",
+      "audio_path": "audio/R002.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 12538,
+          "text": "您好，Demo Hotel给您安排的是八零六号双床房，十月十五日入住，十月十七日退房，两晚房费合计七百九十六元，请核对入住信息。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R003",
+      "started_at": "2026-10-15T11:30:00+08:00",
+      "audio_path": "audio/R003.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 12313,
+          "text": "您好，这里是Demo Hotel前台，您预订的是六零一号套房，十一月一日入住，十一月三日退房，两晚房费共一千九百九十八元，请确认。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R004",
+      "started_at": "2026-10-15T16:20:02+08:00",
+      "audio_path": "audio/R004.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 8963,
+          "text": "Demo Hotel前台正在为您办理入住，请稍等，我先核对证件信息，房间和费用稍后再向您确认。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R005",
+      "started_at": "2026-10-15T17:30:10+08:00",
+      "audio_path": "audio/R005.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 11250,
+          "text": "欢迎来到Demo Hotel，您预订的大床房已为您保留，十月十五日入住，十月十六日退房，请先出示证件，我再为您办理手续。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R006",
+      "started_at": "2026-10-15T19:00:00+08:00",
+      "audio_path": "audio/R006.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 11725,
+          "text": "您好，Demo Hotel已为您安排一零零八号豪华大床房，十月十五日入住，十月十七日退房，房费合计九百五十六元，请核对一下。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R007",
+      "started_at": "2026-10-15T19:00:20+08:00",
+      "audio_path": "audio/R007.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 11525,
+          "text": "再和您确认，您在Demo Hotel的一零零八号豪华大床房，入住日期十月十五日，退房日期十月十七日，两晚共九百五十六元。"
+        }
+      ]
+    },
+    {
+      "recording_id": "R008",
+      "started_at": "2026-10-16T10:15:02+08:00",
+      "audio_path": "audio/R008.mp3",
+      "transcript_segments": [
+        {
+          "start_ms": 100,
+          "end_ms": 13238,
+          "text": "您好，Demo Hotel为您保留了八零三号大床房，二零二六年十月十八日入住，十月十九日退房，一晚房费三百九十八元，今天先确认预订信息。"
+        }
+      ]
+    }
+  ]
+}

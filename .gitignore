@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.cache/
+.venv-audio/
+__pycache__/
+*.pyc
+coverage/
+*.tsbuildinfo
+*.log
+evidence/local/
+.pi/
+.DS_Store
+Thumbs.db

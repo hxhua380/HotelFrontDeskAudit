@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-16T13:53:00.260Z",
+  "runId": "2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a",
+  "scope": "One historical real Pi audit_day run for 2026-10-15 and its historical HTTP acceptance metadata.",
+  "originalFilesPolicy": "Read only; source hashes are recomputed by verify.mjs. No source file is changed.",
+  "files": [
+    {
+      "source": {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/summary.json",
+        "bytes": 23455,
+        "sha256": "cbeea50cfc1d81a139c1ef3da050c49cc885f00c1f430c221d15ac8cb199fc40"
+      },
+      "derivative": {
+        "path": "evidence/submission/run-summary.json",
+        "bytes": 22723,
+        "sha256": "25d739d70ae906563eceb89fe11ba35fa6575c19bbafc595b2a83a4b5cba6844"
+      },
+      "transformation": "JSON parsed and formatted with two spaces plus LF; only declared omissions.",
+      "removedFields": [
+        {
+          "field": "$.prompt",
+          "action": "omit",
+          "reason": "Minimize retained request text; not required by either existing validator. No business result, final answer, argument, ID or time is changed."
+        },
+        {
+          "field": "$.evidenceDirectory",
+          "action": "omit",
+          "reason": "Remove author-machine filesystem diagnostic path."
+        },
+        {
+          "field": "$.summaryPath",
+          "action": "omit",
+          "reason": "Remove author-machine filesystem diagnostic path."
+        }
+      ],
+      "redactedFields": []
+    },
+    {
+      "source": {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/pi-events.jsonl",
+        "bytes": 23179,
+        "sha256": "5e1d350ae56013cf5e168fd6345716e985aa633d2e363fb6095d69ce8ca62a5e"
+      },
+      "derivative": {
+        "path": "evidence/submission/pi-events.jsonl",
+        "bytes": 23179,
+        "sha256": "5e1d350ae56013cf5e168fd6345716e985aa633d2e363fb6095d69ce8ca62a5e"
+      },
+      "transformation": "Byte-for-byte copy after selected-content review; no credentials/authentication/local filesystem paths detected.",
+      "removedFields": [],
+      "redactedFields": []
+    },
+    {
+      "source": {
+        "path": "evidence/local/stage4/2026-10-16T06-25-59-472Z-92b4ec36-83c0-4df6-96dc-f8ae4bc72c7a/tool-executions.jsonl",
+        "bytes": 11448,
+        "sha256": "7f316504075a02150ec7e8cb04e0963188666539124574a16ae22643ffdb4aaf"
+      },
+      "derivative": {
+        "path": "evidence/submission/tool-executions.jsonl",
+        "bytes": 11448,
+        "sha256": "7f316504075a02150ec7e8cb04e0963188666539124574a16ae22643ffdb4aaf"
+      },
+      "transformation": "Byte-for-byte copy after selected-content review; no credentials/authentication/local filesystem paths detected.",
+      "removedFields": [],
+      "redactedFields": []
+    },
+    {
+      "source": {
+        "path": "evidence/local/stage6-fix/http-audit-2026-10-15.json",
+        "bytes": 1766,
+        "sha256": "f083aa4ed6a5618f7709ef468fbf19b7d8aeb7f7c9f69158b35e88945c51b6f4"
+      },
+      "derivative": {
+        "path": "evidence/submission/http-acceptance.json",
+        "bytes": 1766,
+        "sha256": "f083aa4ed6a5618f7709ef468fbf19b7d8aeb7f7c9f69158b35e88945c51b6f4"
+      },
+      "transformation": "Byte-for-byte copy of historical metadata. Loopback HTTP target is retained as request context; no complete response body has been added.",
+      "removedFields": [],
+      "redactedFields": []
+    }
+  ],
+  "preservedFields": [
+    "runId",
+    "toolCallId",
+    "toolName",
+    "args",
+    "sequence",
+    "timestamp",
+    "all structured business results and transcript text",
+    "finalAnswer",
+    "recorded model/session/status/stop metadata",
+    "HTTP metadata and historical body hashes"
+  ],
+  "privacyReview": {
+    "method": "Manual field/content review and selected JSON credential/authentication/local-filesystem-path pattern scan; no environment secrets were read or printed.",
+    "unexpectedSensitiveValuesDetected": 0,
+    "credentialOrAuthenticationRedactions": [],
+    "localFilesystemPathOmissions": [
+      "run-summary.json:$.evidenceDirectory",
+      "run-summary.json:$.summaryPath"
+    ],
+    "optionalPromptOmission": "run-summary.json:$.prompt"
+  },
+  "authoredArtifacts": [
+    {
+      "path": "evidence/submission/verify.mjs",
+      "bytes": 13444,
+      "sha256": "c7e5bf68da489b53d48c7e08f8bea294402f0e15917058365d6a6eadd45e4432"
+    },
+    {
+      "path": "evidence/submission/acceptance.md",
+      "bytes": 4572,
+      "sha256": "bff3eeda41705b186f6d037b73f6a58eb93285d1d3b5e2f977cbe927222e8c2a"
+    }
+  ],
+  "verifierImplementations": [
+    {
+      "path": "src/agent/evidence.ts",
+      "bytes": 9167,
+      "sha256": "c0c66dd9970cbe6cf503d2919601336071e85190c2bc60484e3dfd9988aee45f"
+    },
+    {
+      "path": "scripts/smoke-audit-checks.ts",
+      "bytes": 6482,
+      "sha256": "3f59fe0807d6e3f8b37c082dcac82c7a9b6e8bd3f51e76bd4aee8857fff413b0"
+    },
+    {
+      "path": "src/agent/tools.ts",
+      "bytes": 6450,
+      "sha256": "3528ac8b5ba13e0eefd00b51fce41e01a548b44cdef6279c270815f55d6e911f"
+    }
+  ],
+  "generatedReport": {
+    "path": "evidence/submission/verification.json",
+    "method": "Generated only by actual execution of verify.mjs --write; excluded from this manifest hash list to avoid circular hashes."
+  },
+  "externalSourcePackagePolicy": {
+    "include": [
+      "evidence/submission/acceptance.md",
+      "evidence/submission/verification.json"
+    ],
+    "exclude": [
+      "evidence/local/",
+      "evidence/submission/run-summary.json",
+      "evidence/submission/pi-events.jsonl",
+      "evidence/submission/tool-executions.jsonl",
+      "evidence/submission/http-acceptance.json",
+      "evidence/submission/provenance.json",
+      "evidence/submission/verify.mjs"
+    ]
+  },
+  "limitations": [
+    "Historical HTTP metadata is not the full original HTTP request/response body.",
+    "No new online acceptance is performed; local checks validate historical consistency and declared transformations."
+  ]
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176d60">
+  <meta name="description" content="前台订单与接待录音智能核对工作台。">
+  <title>Hotel Front Desk Audit</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="/" class="brand" aria-label="Hotel Front Desk Audit 首页">
+        <span class="brand-mark" aria-hidden="true">H<span>·</span></span>
+        <div><h1>Hotel Front Desk Audit</h1><span class="brand-caption">前台订单与接待录音智能核对</span></div>
+      </a>
+      <span id="health-status" hidden></span>
+    </header>
+
+    <main>
+      <section class="query-panel" aria-labelledby="query-title">
+        <div class="panel-heading"><h2 id="query-title">发起核对</h2><span class="section-caption">按北京时间办理日查询</span></div>
+        <form id="audit-form" aria-busy="false">
+          <div class="query-fields">
+            <div class="date-field"><label for="audit-date">办理日期</label><input id="audit-date" name="date" type="date" required value="2026-10-15"><p class="field-hint">切换日期后自动重新核对</p></div>
+            <div class="question-field"><label for="audit-question">你想核对什么？</label><textarea id="audit-question" name="question" rows="1" maxlength="1000" required aria-describedby="question-hint">帮我核对当天前台订单和接待录音，列出异常并给出证据。</textarea><p id="question-hint" class="field-hint">问题日期需与所选日期一致；修改后点击开始核对。</p></div>
+            <button id="audit-submit" class="primary-button" type="submit">开始核对</button>
+          </div>
+          <div class="quick-questions" aria-label="问题示例"><span>试着问</span><button type="button" data-question="核对当天所有订单与录音">核对当天所有订单与录音 <span aria-hidden="true">↗</span></button><button type="button" data-question="当天有哪些异常？">当天有哪些异常？ <span aria-hidden="true">↗</span></button><button type="button" data-question="O002 为什么金额不一致？">O002 为什么金额不一致？ <span aria-hidden="true">↗</span></button></div>
+        </form>
+      </section>
+
+      <div id="request-status" class="request-status idle" role="status" aria-live="polite">正在准备核对界面…</div>
+      <div id="stale-notice" class="stale-notice" role="status" hidden>输入已改变，旧响应已移除，不适用于当前查询。请重新核对。</div>
+      <section id="warnings" class="warnings-panel" aria-label="数据警告" hidden></section>
+
+      <section aria-label="五类核对结果统计" id="stats" class="stats-grid"></section>
+
+      <section class="workspace-shell" aria-label="订单与录音核对工作区">
+        <div class="workspace-tabs" role="tablist" aria-label="核对视图">
+          <button id="workspace-tab" class="workspace-tab" type="button" role="tab" aria-selected="true" aria-controls="workspace-panel" tabindex="0">核对工作台</button>
+          <button id="report-tab" class="workspace-tab" type="button" role="tab" aria-selected="false" aria-controls="report-panel" tabindex="-1">AI核对报告</button>
+        </div>
+        <div id="workspace-panel" role="tabpanel" aria-labelledby="workspace-tab">
+          <div class="workbench-grid">
+            <section class="master-panel" aria-labelledby="results-title">
+              <div class="panel-heading results-heading"><div><h2 id="results-title">核对记录</h2><p id="result-summary" class="section-caption">等待查询</p></div></div>
+              <p class="record-list-caption">选择记录，查看差异与录音证据</p>
+              <div id="result-list" class="result-list"><noscript>请启用 JavaScript 后点击开始核对。</noscript></div>
+            </section>
+            <section id="result-detail" class="record-detail" aria-label="选中记录详情" tabindex="-1"></section>
+          </div>
+        </div>
+        <div id="report-panel" role="tabpanel" aria-labelledby="report-tab" hidden>
+          <section class="ai-panel" aria-labelledby="ai-title">
+            <div class="report-document">
+              <div class="ai-panel-title"><h2 id="ai-title">AI核对报告</h2></div>
+              <p class="ai-description">本次订单与录音的 AI 核对说明</p>
+              <div id="ai-answer" class="ai-answer">完成核对后，这里将显示 AI 核对说明。</div>
+            </div>
+          </section>
+        </div>
+        <p id="run-id" hidden></p>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>前台业务核对工作台</span></footer>
+  </div>
+</body>
+</html>
